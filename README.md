@@ -21,15 +21,15 @@
 ### Recommended
 - [Visual Studio 2022 (Premier IDE for C# on Windows Only)](https://visualstudio.microsoft.com/vs/)
     - Alternatives
-        - [Visual Studio for Mac Preview (Mac Only, Not recommended)](https://visualstudio.microsoft.com/vs/mac/)
+        - [Visual Studio for Mac Preview (Mac Only)](https://visualstudio.microsoft.com/vs/mac/)
         - [Visual Studio Code (Linux, macOS, Windows)](https://code.visualstudio.com/)
             - After Finished download the [C# Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
         - [Jetbrains Rider (Free with student license) (Linux, macOS, Windows)](https://www.jetbrains.com/rider/)
         - [Vim (Text Editor, technically cross platform but Unix focussed)](https://www.vim.org/)
 ## Getting Started
 1. Download and Set up an IDE or Text Editor
-    - For Windows Download Visual Studio or Rider using links above
-    - For Linux or Mac download Rider using links above
+    - For Windows or Mac Download Visual Studio or Rider using links above
+    - For Linux download Rider or VSCode using links above
     - If you just want to use a text editor download VSCode and the C# extension using links above
         - Also download .net6.0 sdk if using this
     - If you hate yourself use vim (the superior command line text editor), emacs (if you REALLY hate yourself), or nano
@@ -37,7 +37,7 @@
 2. Register bot with Discord
      - Follow DiscordJS' guide [here](https://discordjs.guide/preparations/setting-up-a-bot-application.html)
      - If the discord developer link doesn't work the first time, make sure youre logged in and keep trying the link
-2. Ensure the sdk was set up properly
+3. Ensure the sdk was set up properly
     - Open a terminal
         - Windows
             - Click `⊞ Win` + `r`
@@ -51,13 +51,13 @@
     - You should see a list like this:
     ![dotnet sdks list](BotInstructions/list-sdks-output.png)
     but probably with fewer versions, as long as one version is 6.x.x (or 5.x.x if using .net5.0) you are all set up
-3. Install Entity Framework Core Tools
+4. Install Entity Framework Core Tools
     - `dotnet tool install --global dotnet-ef`
         - or update existing tool with `dotnet tool update --global dotnet-ef`
-4. Make your project
+5. Make your project
     - Using Visual Studio template console
     - `dotnet new console -f net6.0 -o InsertProjectNameHere` while in the folder you want to store your project folder
-5. Add dependencies
+6. Add dependencies
     - Using Nuget via the UI
     - Using `dotnet add package InsertPackageNameHere`
     - Required Packages are `Remora.Discord`, `Microsoft.EntityFrameworkCore.Design`, `Microsoft.EntityFrameworkCore.Sqlite`, and `Microsoft.Extensions.Hosting`
