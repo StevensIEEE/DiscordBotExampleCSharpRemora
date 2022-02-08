@@ -2,3 +2,8 @@ config.json
 .vs/
 bin/
 obj/
+*.db
+/BotExample/Properties
+*.db-shm
+*.db-wal
+*.user

@@ -18,6 +18,8 @@
     - [Getting Started](https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli)
     - [dotnet ef tool](https://docs.microsoft.com/en-us/ef/core/cli/dotnet)
         - Used for managing Entity Framework Core (Database Framework)
+    - [Simple SQLite Example](https://entityframeworkcore.com/providers-sqlite)
+    - [SQLite Function Mapping](https://docs.microsoft.com/en-us/ef/core/providers/sqlite/functions)
 ### Recommended
 - [Visual Studio 2022 (Premier IDE for C# on Windows Only)](https://visualstudio.microsoft.com/vs/)
     - Alternatives

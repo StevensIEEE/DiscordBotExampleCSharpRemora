@@ -7,6 +7,7 @@ using Remora.Discord.API.Abstractions.Objects;
 using Remora.Discord.API.Abstractions.Rest;
 using Remora.Discord.Commands.Extensions;
 using Remora.Discord.Commands.Services;
+using Remora.Discord.Gateway.Extensions;
 using Remora.Discord.Hosting.Extensions;
 using Remora.Discord.Rest.Extensions;
 using Remora.Rest.Core;
@@ -20,7 +21,7 @@ namespace BotExample
         internal static readonly Configuration Config = Configuration.ReadConfig();
 
         // private static readonly IDiscordRestGuildAPI _restGuildAPI;
-        private static ILogger<Program> log;
+        public static ILogger<Program> log;
 
         public static async Task Main(string[] args)
         {
@@ -31,7 +32,9 @@ namespace BotExample
                     (_, services) =>
                     {
                         services
+                            .AddDbContext<Database.CussDbContext>()
                             .AddDiscordRest(_ => Config.Token)
+                            .AddResponder<CussResponder>()
                             .AddDiscordCommands(true)
                             .AddCommandTree()
                                 .WithCommandGroup<ModCommands>();
@@ -41,6 +44,7 @@ namespace BotExample
                         .AddConsole()
                         .AddFilter("System.Net.Http.HttpClient.*.LogicalHandler", LogLevel.Warning)
                         .AddFilter("System.Net.Http.HttpClient.*.ClientHandler", LogLevel.Warning)
+                        .SetMinimumLevel(LogLevel.Trace)
                 )
                 .UseConsoleLifetime()
                 .Build();
@@ -80,8 +84,6 @@ namespace BotExample
                     log.LogWarning("Failed to update slash commands: {Reason}", updateSlash.Error?.Message);
                 }
             }
-            // gatewayClient = services.GetRequiredService<DiscordGatewayClient>();
-            // guildAPI = services.GetRequiredService<DiscordRestGuildAPI>();
             await host.RunAsync().ConfigureAwait(false);
 
             Console.WriteLine("Bye bye");
